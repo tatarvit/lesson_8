@@ -1,0 +1,170 @@
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/Lato-Regular.woff2") format("woff2"), url("../fonts/Lato-Regular.woff") format("woff");
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/Lato-Bold.woff2") format("woff2"), url("../fonts/Lato-Bold.woff") format("woff");
+	font-display: swap;
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Lato";
+	src: url("../fonts/Lato-Black.woff2") format("woff2"), url("../fonts/Lato-Black.woff") format("woff");
+	font-display: swap;
+	font-weight: 900;
+	font-style: normal;
+}
+
+body {
+	font-family: "Lato";
+	line-height: 160%;
+	color: #424551;
+}
+
+[class*="__container"] {
+	max-width: 1230px;
+	margin: 0 auto;
+}
+
+.main__page-text {
+	margin-bottom: 48px;
+}
+.page__title {
+	font-weight: 900;
+	font-size: 46px;
+	line-height: 130%;
+	margin-bottom: 40px;
+}
+
+.page__title-one {
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 150%;
+	margin-bottom: 24px;
+}
+
+ul {
+	margin-bottom: 32px;
+}
+
+li:not(:last-child) {
+	margin-bottom: 4px;
+}
+
+
+.page__list li {
+	padding-left: 32px;
+	background: url("../img/icons/galochka_1.jpg") 0 6px no-repeat;
+
+}
+
+.page__list-one li {
+	font-weight: 700;
+	padding-left: 24px;
+}
+
+.page__list-one li:first-child {
+	background: url("../img/icons/zirochka.jpg") 0 6px no-repeat;
+}
+.page__list-one li:nth-child(2) {
+	background: url("../img/icons/play.jpg") 0 6px no-repeat;
+}
+.page__list-one li:last-child {
+	background: url("../img/icons/man.jpg") 0 6px no-repeat;
+}
+/*---------ПСЕВДОКЛАСИ------------*/
+/*----------:hover звернення до елементу в стані НАВЕДЕННЯ МИШІ--------*/
+.home-work__container div:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.link:hover {
+	color: green;
+
+}
+a:visited {
+	color: #5d04f8;
+}
+
+a:focus {
+	outline: 1px solid red;
+	border-radius: 5px;
+}
+
+.block {
+	background-color: #0c18fa;
+	color: #ffff00;
+	padding: 30px;
+}
+
+.block:hover {
+	background-color: #f20404;
+	color: #000;
+}
+
+.block__one {
+	background-color: #00ffff;
+}
+
+.block__one:hover .block__item {
+	visibility: visible;
+	opacity: 1;
+}
+
+.block__item {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.block__two {
+	background-color: #faee0c;
+	color: #0a0a0a;
+	padding: 30px;
+	display: none;
+}
+
+.block__two:target {
+	display: block;
+}
+
+/*----------ПСЕВДОКЛАСИ ПОЛОЖЕННЯ В КОДІ--------*/
+.block__three p::before{
+	background: url("../img/icons/galochka_1.jpg") 0 0 no-repeat;
+	padding-left: 24px;
+	line-height: 150%;
+	content: "";
+	width: 16px;
+	height: 16px;
+	display: inline-block
+}
+.block__three p::after {
+	background: url("../img/icons/zirochka.jpg");
+	content: "";
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+.block__three p:nth-child(odd) {
+	background: #00ffff;
+}
+
+.block__three p:nth-child(even) {
+	background-color: #b591f4;
+}
+
+.block__three p:first-of-type {
+	text-transform: uppercase;
+}
+
+.block__three p:last-of-type {
+	text-transform: lowercase;
+	color: #f20404;
+}
