@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Задача 1</h1>
+	<p>
+		Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії
+		він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно),
+		трійочник(є хоча би одна трійка)).
+	</p>
+	<script>
+		// Вводимо початкові дані
+		// кількість предметів
+		// вводиму оцінки
+		// відмінно (оцінки 10, 11, 12), добре (7,8,9), задовільно (4,5,6), незадлвільно (1,2,3)
+		let subject = parseInt(prompt(`введіть кількість пердметів`))
+		const score = []
+		for (let j = 0; j < subject; j++) {
+			const scoreForSubjact = parseInt(prompt(`введіть оцінку по предмету ${j + 1}`))
+			score.push(scoreForSubjact)
+		}
+
+
+		// визначаємо середній бал учня/учениці
+		function getAverageScore(score) {
+			let totalScore = 0
+			for (let i = 0; i < score.length; i++) {
+				totalScore += score[i]
+			}
+			return totalScore / score.length
+		}
+
+		// визначаємо мінімальну оцінку
+		function getMinScore(score) {
+			let min = score[0]
+			for (let k = 0; k < score.length; k++) {
+				if (score[k] < min)
+					min = score[k]
+			}
+			return min
+		}
+
+		function getPupilRank(minScore) {
+			let pupilRank
+			if (minScore < 4) {
+				result = 'двійочник'
+			}
+			else if (minScore < 7) {
+				result = 'трійочник'
+			}
+			else if (minScore < 10) {
+				result = 'хорошист'
+			}
+			else
+				result = 'відмінник'
+			return result
+
+		}
+
+
+
+		let averageScore = (getAverageScore(score)).toFixed(2)
+		let minScore = getMinScore(score)
+		let pupilRank = getPupilRank(minScore)
+
+		document.write(`Середній бал становить ${averageScore}</br>`)
+		document.write(`найнижча оцінка учня ${minScore}</br>`)
+		document.write(`${pupilRank}`)
+
+
+	</script>
+</body>
+
+</html>

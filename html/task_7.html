@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Задача 7</h1>
+	<p>
+		Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+		за весь рік; у першій половині року; у другій половині року; за літо; за ІІ квартал;
+		за парні місяці (з парними номерами); за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+
+	</p>
+	<script>
+		// описуеємо функцію для введення даних
+		function paymentsForYear(month) {
+			const monthlyPayments = []
+			for (let i = 0; i < month; i++) {
+				let paymentsForMonth = parseFloat(prompt(`введіть суму за ${i + 1} місяць `))
+				monthlyPayments.push(paymentsForMonth)
+			}
+			return monthlyPayments
+		}
+
+		// описуємо функцію, яка рахує суму за даний період
+		function getAmountForPayments(
+			monthlyPayments,
+			startMonth,
+			endMonth,
+			steps = 1) {
+			let sum = 0
+			for (let month = startMonth - 1; month < endMonth; month += steps) {
+				sum += monthlyPayments[month]
+			}
+			return sum
+		}
+
+		// вводимо масив з сумою по платіжам
+
+		const monthlyPayments = paymentsForYear(12)
+		document.write(`платіжки за місяць------${monthlyPayments}<br>`)
+
+		// Знаходимо сумарну кількість грошей за рік
+		const sumForYear = getAmountForPayments(monthlyPayments, 1, 12)
+		document.write(`кількість грошей за рік------${sumForYear}<br>`)
+
+		// Знаходимо сумарну кількість грошей за перше півріччя
+		const sumForFirstHalfYear = getAmountForPayments(monthlyPayments, 1, 6)
+		document.write(`кількість грошей за перше півріччя------${sumForFirstHalfYear}<br>`)
+
+		// Знаходимо сумарну кількість грошей за друге півріччя
+		const sumForSecondHalfYear = getAmountForPayments(monthlyPayments, 7, 12)
+		document.write(`кількість грошей за друге півріччя------${sumForSecondHalfYear}<br>`)
+
+		// Знаходимо сумарну кількість грошей за літо
+		const sumForSummer = getAmountForPayments(monthlyPayments, 6, 8)
+		document.write(`кількість грошей за літо------${sumForSummer}<br>`)
+
+		// Знаходимо сумарну кількість грошей за другий квартал
+		const sumForSecondQuarter = getAmountForPayments(monthlyPayments, 4, 6)
+		document.write(`кількість грошей за другий квартал------${sumForSecondQuarter}<br>`)
+
+		// Знаходимо сумарну кількість грошей за парні місяці (з парними номерами)
+		const sumForEvenMonth = getAmountForPayments(monthlyPayments, 2, 12, 2)
+		document.write(`кількість грошей за парні місяці (з парними номерами)------${sumForEvenMonth}<br>`)
+
+		// Знаходимо сумарну кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима)
+		sumForFirstMonthOfSeason = getAmountForPayments(monthlyPayments, 3, 12, 3)
+		document.write(`кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима)------${sumForFirstMonthOfSeason}<br>`)
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Задача 8</h1>
+	<p>
+		Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим
+		чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів
+		(поки він не відмовиться). Знаходити сумарний виграш.
+		<script>
+			// ця задача не вірно зроблена, запутався зі зміними, треба переробляти
+			// описуємо функцію для генерації
+			function numbers(minNumber, maxNumber, quantity) {
+				let numbers = []
+				for (let i = 0; i < quantity; i++) {
+					const number = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+					numbers.push(number)
+				}
+				return numbers
+			}
+			// генеруємо масив
+			let betNumbers = numbers(-500, 500, 10)
+			// вибераемо елемент
+			function getChoiceElement(choiceNumber) {
+				let choiceNumber = parseInt(prompt(`введіть число від 1 до 10`))
+				return choiceNumber
+			}
+			// порівнюємо
+			// let choiceElement = getChoiceElement(10)
+			// let velue = betNumbers[choiceElement]
+			// описуємо функцію так чи ні, виводимо значення виграшу
+			function getContinueGame() {
+				return confirm(`продовжуеш гру?`)
+			}
+			let choiceElement = getChoiceElement(10)
+			let value = betNumbers[choiceElement]
+
+			let continueGame = getContinueGame()
+			// while (continueGame) {
+			// 	let win = 0
+			// 	if (value >= 0) {
+			// 		alert(`ви виграли, виграш складає ${win} грн`)
+			// 		win = win + value
+			// 	}
+			// 	else if (value < 0) {
+			// 		win = win - value
+			// 		if (win > 0) {
+			// 			alert(`ви програли, виграшна сума складає ${win} грн`)
+			// 		}
+			// 		else if (win < 0) {
+			// 			alert('нажаль у вас на рахунку негативний баланс ')
+			// 		}
+			// 	}
+			// }
+
+
+
+
+
+
+
+			document.write(betNumbers)
+		</script>
+	</p>
+
+</body>
+
+</html>

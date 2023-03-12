@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Задача 6</h1>
+	<p>
+		Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які
+		може собі дозволити користувач (кількість грошей задається).
+	</p>
+	<script>
+		// вводимо дані
+		let productPrice = [1000, 20, 30]
+		let productTitles = ['Сир', 'Сік', 'Хліб']
+		const money = parseFloat(prompt('введіть кількість грошей,яку ви маєте'))
+
+		// описуємо функцію для виведеня товаро за ці гроші
+		function getMeProduct(productPrice, productTitles, money) {
+			let product = []
+			for (let i = 0; i < productPrice.length; i++) {
+				if (money > productPrice[i])
+					product.push(productTitles[i])
+			}
+			return product
+		}
+		// ввиводимо результат
+		let myProduct = getMeProduct(productPrice, productTitles, money)
+		document.write(myProduct)
+	</script>
+
+</body>
+
+</html>

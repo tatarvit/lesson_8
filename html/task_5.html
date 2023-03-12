@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Задача 5</h1>
+	<p>
+		Дано послідовність оцінок учня. Підрахувати кількість: двійок; кількість хороших оцінок
+		(добре, відмінно); кількість оцінок, які нижче середнього.
+	</p>
+	<script>
+		// описуеємо функцію для введення даних
+		function achievementPupilForSubject(subject) {
+			const scoreForSubject = []
+			for (let i = 0; i < subject; i++) {
+				const score = 1 + Math.floor(Math.random() * 12)
+				scoreForSubject.push(score)
+			}
+			return scoreForSubject
+		}
+
+		// описуємо функцію, яка рахує двійки
+		function getBadScore(score) {
+			let counterBadScore = 0
+			for (let i = 0; i < score.length; i++) {
+				if (score[i] < 3)
+					counterBadScore++
+			}
+			return counterBadScore
+		}
+
+		// описуємо функцію, яка рахує хороші оцінки
+		function getGoodScore(score) {
+			let counterGoodScore = 0
+			for (let i = 0; i < score.length; i++) {
+				if (score[i] > 6)
+					counterGoodScore++
+			}
+			return counterGoodScore
+		}
+
+		// описуємо функції, яка рахує кількість оцінок, які нижче середнього
+		// описуємо функцію для визначення середньої оцінки
+		function getAverageScore(score) {
+			let totalSumScore = 0
+			for (let i = 0; i < score.length; i++) {
+				totalSumScore += score[i];
+			}
+			return totalSumScore / score.length
+		}
+		// описуємо функцію для знаходження оцінок, які нижче за середню
+		function getLowerAverageScore(score) {
+			let counterLowerAverageScore = 0
+			for (let i = 0; i < score.length; i++) {
+				if (score[i] < averageScore)
+					counterLowerAverageScore++
+			}
+			return counterLowerAverageScore
+		}
+
+		// вводимо дані
+		const subject = parseInt(prompt('введіть кількість предметів'))
+
+		// вводимо масив з оцінками
+
+		const score = achievementPupilForSubject(subject)
+		document.write(`послідовніст оцінок------${score}<br>`)
+
+		// двійки
+		const badScore = getBadScore(score)
+		document.write(`кількість двійок------${badScore}<br>`)
+
+		// хороші оцінки
+		const goodScore = getGoodScore(score)
+		document.write(`кількість хороших оцінок------${goodScore}<br>`)
+
+		// середня оцінка
+		const averageScore = (getAverageScore(score)).toFixed(2)
+		document.write(`сердня оцінка------${averageScore}<br>`)
+
+		// оцінки, які нижче середнього
+		const lowerAverageScore = getLowerAverageScore(score)
+		document.write(`оцінки, які нижче середнього------${lowerAverageScore}<br>`)
+
+	</script>
+
+</body>
+
+</html>

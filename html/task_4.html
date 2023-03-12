@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Задача 4</h1>
+	<p>
+		Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+		починаються на букву «А»; перша і остання літери співпадають; складаються з більше ніш 5 символів;
+
+
+	</p>
+	<script>
+
+		// описуємо функцію, яка рахує номери, які починаються на букву А
+		function getFirstNumberA(numbers) {
+			let counterFirstNumberA = 0
+			for (let i = 0; i < numbers.length; i++) {
+				if (numbers[i].startsWith('A'))
+					counterFirstNumberA++
+			}
+			return counterFirstNumberA
+		}
+		// описуємо функцію для номерів де перша і остання літери співпадають
+		function getEqualFirstAndLastLetter(numbers) {
+			let counterEqualFirstAndLastLetter = 0
+			for (let i = 0; i < numbers.length; i++) {
+				if (numbers[i].charAt(0) === numbers[i].charAt(numbers[i].length - 1))
+					counterEqualFirstAndLastLetter++
+			}
+			return counterEqualFirstAndLastLetter
+		}
+
+		// описуємо функцію де номер більше ніж 5 символів
+		function getLengthMoreFive(numbers) {
+			let counterLengthMoreFive = 0
+			for (let i = 0; i < numbers.length; i++) {
+				if (numbers[i].length > 5)
+					counterLengthMoreFive++
+			}
+			return counterLengthMoreFive
+		}
+
+
+
+		// вводимо дані
+		const numbers = [
+			'A123A', 'B345B', 'A321C', 'DA24D',
+			'AC234BC', 'CD12345', 'DA12345D', 'DA34567'
+		]
+
+
+		// виводимо дані
+		let result = getFirstNumberA(numbers)
+		document.write(`номери, які починаються на букву А ------${result}<br>`)
+
+		let result1 = getEqualFirstAndLastLetter(numbers)
+		document.write(`номери, у яких перша і остання літери співпадають ------${result1}<br>`)
+
+		let result3 = getEqualFirstAndLastLetter(numbers)
+		document.write(`номери, у яких номер більше ніж 5 символів ------${result3}<br>`)
+
+
+
+
+	</script>
+
+</body>
+
+</html>
